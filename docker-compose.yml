@@ -1,0 +1,17 @@
+version: '3'
+services:
+  recommendation-rabbit:
+    image: rabbitmq:management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_VHOST=vhost
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+  redis:
+    image: library/redis
+    expose:
+      - "6379"
+    ports:
+      - "6379:6379"
