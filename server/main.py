@@ -15,6 +15,7 @@ def create_web_app(version: str) -> Application:
     app['version'] = version
 
     app.add_routes([
+        web.static('/', '../client'),
         web.get('/api/v1/flow/{uuid}', get_flow_handler)
     ])
     return app
